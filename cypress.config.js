@@ -21,6 +21,14 @@ module.exports = defineConfig({
     application_URL: 'https://www.saucedemo.com/'
   },
 
+  viewportHeight: 760,
+  viewportWidth: 1100,
+
+  retries: 1, 
+
+  video: true,
+  videoCompression: true,
+  
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     reportDir: 'cypress/reports/sauce-demo-ui-tests-report',
