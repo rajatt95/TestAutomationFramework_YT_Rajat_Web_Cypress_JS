@@ -16,6 +16,10 @@
 /// <reference types="cypress" />
 
 import loginPage from '../../support/pages/LoginPage'
+import productsPage from '../../support/pages/ProductsPage'
+import header from '../../support/pages/components/Header'
+import footer from '../../support/pages/components/Footer'
+
 
 const application_URL = Cypress.env('application_URL')
 
@@ -37,6 +41,22 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
 
   it('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', () => {
     
+    loginPage.loginToApplication(valid_username_1, valid_password_1)
+
+    // Assertions for an successful login 
+
+    // Verify successful login on the Products Page
+    productsPage.elements.heading_products().should('have.text', 'Products')
+
+    // Verify common components on the page
+    header.elements.logo_application().should('have.text', 'Swag Labs')
+    footer.elements.msg_copyright().should('include.text', ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+    
+  })
+
+
+  it.skip('Before Optimization (POM, Test Data) >> [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', () => {
+    
     // Type valid credentials and login
     // cy.get('#user-name').type('standard_user')
     // cy.xpath("//input[@id='user-name']").type('standard_user')
@@ -53,11 +73,16 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
     // Assertions for an successful login 
 
     // Verify successful login on the Products Page
-    cy.get('.title').should('have.text', 'Products')
+    // cy.get('.title').should('have.text', 'Products')
+    productsPage.elements.heading_products().should('have.text', 'Products')
 
     // Verify common components on the page
-    cy.get('.app_logo').should('have.text', 'Swag Labs')
-    cy.get('.footer_copy').should('include.text', ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+    // cy.get('.app_logo').should('have.text', 'Swag Labs')
+    // cy.get('.footer_copy').should('include.text', ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+
+    header.elements.logo_application().should('have.text', 'Swag Labs')
+    footer.elements.msg_copyright().should('include.text', ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+
     
   })
   
