@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:tests": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed"
+    "cy:tests:ELECTRON:NORMAL": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed",
+    "cy:tests:ELECTRON:HEADLESS": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js",
+
+    "cy:tests:CHROME": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed --browser chrome",
+    "cy:tests:FIREFOX": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed --browser firefox",
+    "cy:tests:EDGE": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed --browser edge"
+
   },
   "author": "Rajat Verma",
   "license": "ISC",
