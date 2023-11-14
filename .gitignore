@@ -17,7 +17,8 @@ node_modules
 package-lock.json
 .DS_Store
 extras
-reports
+cypress/reports
+cypress/videos
 ###########################
 
 #target/
