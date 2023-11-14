@@ -19,7 +19,11 @@ describe('Sauce Demo - [LOGIN]', () => {
   
   beforeEach(() => {
     // Navigate to the Sauce Demo website before each test
-    cy.visit('https://www.saucedemo.com/')
+    // cy.visit('https://www.saucedemo.com/')
+
+    // Navigate to the Sauce Demo website before each test using Cypress custom command
+    cy.goToApplication()
+
   })
 
   it('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', () => {

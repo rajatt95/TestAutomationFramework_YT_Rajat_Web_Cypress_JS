@@ -17,6 +17,10 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
 
+  env: {
+    application_URL: 'https://www.saucedemo.com/'
+  },
+
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     reportDir: 'cypress/reports/sauce-demo-ui-tests-report',

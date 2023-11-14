@@ -38,3 +38,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// Custom Cypress command to navigate to the application
+// Usage: cy.goToApplication()
+Cypress.Commands.add('goToApplication', () => {
+    
+    // Retrieve the application URL from Cypress environment variables
+    const url = Cypress.env('application_URL')
+    
+    // Log the navigation action
+    cy.log('Navigating to application: ' + url)
+
+    // Visit the application URL
+    cy.visit(url)
+})
