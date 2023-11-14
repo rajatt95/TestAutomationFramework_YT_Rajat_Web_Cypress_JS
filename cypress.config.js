@@ -16,9 +16,26 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    reportDir: 'cypress/reports/sauce-demo-ui-tests-report',
+    charts: true,
+    reportPageTitle: 'Sauce Demo UI Tests',
+    embeddedScreenshots: true,
+    inlineAssets: true,    
+    overwrite: false,
+    autoOpen: false,
+    code: true,
+    timestamp: 'longDate',
+    showPassed: true,
+    saveAllAttempts: false,
+  },
+
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on);
     },
   },
 });
