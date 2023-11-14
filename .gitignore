@@ -1,0 +1,60 @@
+# /**
+#  * Author: Rajat Verma
+#  * Email: rajatvermaa95@gmail.com
+#  * GitHub Profile: https://github.com/rajatt95
+#  * GitHub Page: https://rajatt95.github.io/
+#  * LinkedIn: https://www.linkedin.com/in/rajatt95/
+#  * Topmate: https://topmate.io/rajatt95
+#  * Telegram: https://t.me/rajatt95
+#  * Instagram: https://www.instagram.com/rajattvermaa95/
+#  * YouTube: https://www.youtube.com/@rajatt95
+#  * WhatsApp: https://chat.whatsapp.com/DVRP0ViD0YwELUKF2XMJHy
+#  */
+
+# /***************************************************/
+
+node_modules
+package-lock.json
+.DS_Store
+extras
+
+###########################
+
+#target/
+#!.mvn/wrapper/maven-wrapper.jar
+#!**/src/main/**/target/
+#!**/src/test/**/target/
+#
+#### IntelliJ IDEA ###
+#.idea/modules.xml
+#.idea/jarRepositories.xml
+#.idea/compiler.xml
+#.idea/libraries/
+#*.iws
+#*.iml
+#*.ipr
+#
+#### Eclipse ###
+#.apt_generated
+#.classpath
+#.factorypath
+#.project
+#.settings
+#.springBeans
+#.sts4-cache
+#
+#### NetBeans ###
+#/nbproject/private/
+#/nbbuild/
+#/dist/
+#/nbdist/
+#/.nb-gradle/
+#build/
+#!**/src/main/**/build/
+#!**/src/test/**/build/
+#
+#### VS Code ###
+#.vscode/
+#
+#### Mac OS ###
+#.DS_Store

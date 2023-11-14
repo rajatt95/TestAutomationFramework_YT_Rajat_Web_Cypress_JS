@@ -1,0 +1,14 @@
+{
+  "name": "testautomationframework_yt_rajat_cypress_js",
+  "version": "1.0.0",
+  "description": "This project is a Test Automation Framework built using Cypress and Javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rajat Verma",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.5.0"
+  }
+}
