@@ -4,7 +4,8 @@
   "description": "This project is a Test Automation Framework built using Cypress and Javascript.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:open": "cypress open",
+    "cy:tests": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed"
   },
   "author": "Rajat Verma",
   "license": "ISC",
