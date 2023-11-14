@@ -15,6 +15,8 @@
 
 /// <reference types="cypress" />
 
+import loginPage from '../../support/pages/LoginPage'
+
 const application_URL = Cypress.env('application_URL')
 
 describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
@@ -42,10 +44,11 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
     // cy.xpath("//input[@id='user-name']").type('standard_user')
     // cy.get('#password').type('secret_sauce')
     
-    cy.xpath("//input[@id='user-name']").type(valid_username_1)
-    cy.get('#password').type(valid_password_1)
-    
-    cy.get('#login-button').click()
+    // cy.xpath("//input[@id='user-name']").type(valid_username_1)
+    // cy.get('#password').type(valid_password_1)
+    // cy.get('#login-button').click()
+
+    loginPage.loginToApplication(valid_username_1, valid_password_1)
 
     // Assertions for an successful login 
 
