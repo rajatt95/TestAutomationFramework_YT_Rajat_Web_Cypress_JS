@@ -15,8 +15,15 @@
 
 /// <reference types="cypress" />
 
-describe('Sauce Demo - [LOGIN]', () => {
+const application_URL = Cypress.env('application_URL')
+
+describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
   
+  const login_credentials = require('/cypress/fixtures/login_credentials.json')
+  const valid_username_1 = login_credentials.valid_username_1
+  const valid_password_1 = login_credentials.valid_password_1
+ 
+
   beforeEach(() => {
     // Navigate to the Sauce Demo website before each test
     // cy.visit('https://www.saucedemo.com/')
@@ -30,9 +37,14 @@ describe('Sauce Demo - [LOGIN]', () => {
     
     // Type valid credentials and login
     // cy.get('#user-name').type('standard_user')
-    cy.xpath("//input[@id='user-name']").type('standard_user')
+    // cy.xpath("//input[@id='user-name']").type('standard_user')
 
-    cy.get('#password').type('secret_sauce')
+    // cy.xpath("//input[@id='user-name']").type('standard_user')
+    // cy.get('#password').type('secret_sauce')
+    
+    cy.xpath("//input[@id='user-name']").type(valid_username_1)
+    cy.get('#password').type(valid_password_1)
+    
     cy.get('#login-button').click()
 
     // Assertions for an successful login 
