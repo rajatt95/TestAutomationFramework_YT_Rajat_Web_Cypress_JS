@@ -1,4 +1,7 @@
 
+import basePage from './BasePage'
+
+
 /**
  * LoginPage class representing the login page of the application.
  */
@@ -32,10 +35,14 @@ class LoginPage{
         cy.log('Logging into application using '+ username + ' and '+ password)
 
         // Filling the username and password fields and clicking the login button
-        this.elements.textbox_username().type(username)
-        this.elements.textbox_password().type(password)
-        this.elements.button_LogIn().click()
-        
+        // this.elements.textbox_username().type(username)
+        // this.elements.textbox_password().type(password)
+        // this.elements.button_LogIn().click()
+
+        basePage.fillTextBox(this.elements.textbox_username(), username)
+        basePage.fillTextBox(this.elements.textbox_password(), password)
+        basePage.clickOnWebElement(this.elements.button_LogIn())
+
     }
 
 }
