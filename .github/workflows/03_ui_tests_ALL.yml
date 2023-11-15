@@ -1,0 +1,45 @@
+# This GitHub Actions workflow is designed to execute Cypress tests across all supported browsers. 
+# It supports manual triggers and utilizes a matrix strategy to run tests on 
+# CHROME, FIREFOX, ELECTRON, and EDGE browsers.
+
+name: Tests Execution - All Supported Browsers
+
+on:
+  # Manual Trigger with all supported browsers
+  workflow_dispatch:
+
+jobs:
+  cypress:
+    # Define the machine on which tests will execute
+    runs-on: ubuntu-latest
+
+    # Step 1: Use matrix strategy for parallel test execution on different browsers
+    strategy:
+      matrix:
+        browser: [CHROME, FIREFOX, ELECTRON, EDGE]
+
+    steps:
+      # Step 2: Checking out the code from the GitHub repository to the machine (ubuntu-latest)
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 3: Installing Node.js
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      
+      # Step 4: Installing dependencies required for Cypress
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 5: Run Cypress tests on all supported browsers from the matrix
+      - name: Run Cypress tests
+        run: npm run cy:tests:${{ matrix.browser }}
+        
+      # Step 6: Upload test reports as artifacts
+      - name: Upload Reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Reports
+          path: cypress/reports

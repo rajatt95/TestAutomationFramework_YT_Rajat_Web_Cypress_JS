@@ -1,0 +1,49 @@
+# This GitHub Actions workflow is designed to execute Cypress tests with the option 
+# to select the browser dynamically at run-time. 
+# It supports manual triggers and handles inputs for browser selection.
+
+name: Tests Execution - Select Browser at run-time
+
+on:
+  # Manual Trigger with browser selection input
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Select browser (CHROME | EDGE | ELECTRON | FIREFOX)'
+        options:
+          - 'CHROME'
+          - 'EDGE'
+          - 'ELECTRON'
+          - 'FIREFOX'
+        required: true
+        default: 'CHROME'
+        type: choice
+jobs:
+  cypress:
+    # Machine on which tests will execute
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checking out the code from Github repository to the machine (ubuntu-latest)
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Installing Node JS
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      
+      # Installing dependencies required for Cypress
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests
+        run: npm run cy:tests:${{ github.event.inputs.browser }}
+        
+      # Add this step to upload the reports as artifacts
+      - name: Upload Reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Reports
+          path: cypress/reports
