@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  cypress:
+  cypress_ui_tests_ALL_browsers:
     # Define the machine on which tests will execute
     runs-on: ubuntu-latest
 
