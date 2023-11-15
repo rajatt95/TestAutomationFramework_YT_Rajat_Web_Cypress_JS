@@ -15,32 +15,38 @@
 
 /// <reference types="cypress" />
 
+// Importing page objects and components
 import loginPage from '../../support/pages/LoginPage'
 import productsPage from '../../support/pages/ProductsPage'
 import header from '../../support/pages/components/Header'
 import footer from '../../support/pages/components/Footer'
 
-
+// Retrieve the application URL from Cypress environment variables
 const application_URL = Cypress.env('application_URL')
 
+// Test Suite for Sauce Demo Login
 describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
   
+  // Load login credentials from fixtures
   const login_credentials = require('/cypress/fixtures/login_credentials.json')
   const valid_username_1 = login_credentials.valid_username_1
   const valid_password_1 = login_credentials.valid_password_1
  
 
+  // Set up tasks to be performed before each test
   beforeEach(() => {
     // Navigate to the Sauce Demo website before each test
     // cy.visit('https://www.saucedemo.com/')
 
-    // Navigate to the Sauce Demo website before each test using Cypress custom command
+    // Navigate to the Sauce Demo website before each test using a custom Cypress command
     cy.goToApplication()
 
   })
 
+  // Test Case: Login with valid credentials
   it('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', () => {
     
+    // Perform login using the loginPage object
     loginPage.loginToApplication(valid_username_1, valid_password_1)
 
     // Assertions for an successful login 
@@ -55,6 +61,7 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
   })
 
 
+  // Test Case: Login with valid credentials (Before Optimization)
   it.skip('Before Optimization (POM, Test Data) >> [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', () => {
     
     // Type valid credentials and login
@@ -68,6 +75,7 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
     // cy.get('#password').type(valid_password_1)
     // cy.get('#login-button').click()
 
+    // Perform login using raw Cypress commands (before optimization)
     loginPage.loginToApplication(valid_username_1, valid_password_1)
 
     // Assertions for an successful login 

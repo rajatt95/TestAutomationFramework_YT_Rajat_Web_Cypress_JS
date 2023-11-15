@@ -19,7 +19,7 @@ on:
         default: 'CHROME'
         type: choice
 jobs:
-  cypress_ui_tests_select_one_browser:
+  cypress_select_one_browser:
     # Machine on which tests will execute
     runs-on: ubuntu-latest
 
