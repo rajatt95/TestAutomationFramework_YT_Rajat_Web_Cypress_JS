@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
+
     "cy:tests:ELECTRON:NORMAL": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed",
     "cy:tests:ELECTRON:HEADLESS": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js",
 

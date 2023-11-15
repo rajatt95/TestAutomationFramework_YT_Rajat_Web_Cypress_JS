@@ -2,7 +2,7 @@
 # to select the browser dynamically at run-time. 
 # It supports manual triggers and handles inputs for browser selection.
 
-name: Tests Execution - Select Browser at run-time
+name: 02_Tests Execution - Select Browser at run-time
 
 on:
   # Manual Trigger with browser selection input

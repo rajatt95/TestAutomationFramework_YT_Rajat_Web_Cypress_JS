@@ -2,7 +2,7 @@
 # It supports manual triggers and utilizes a matrix strategy to run tests on 
 # CHROME, FIREFOX, ELECTRON, and EDGE browsers.
 
-name: Tests Execution - All Supported Browsers
+name: 03_Tests Execution - All Supported Browsers
 
 on:
   # Manual Trigger with all supported browsers
