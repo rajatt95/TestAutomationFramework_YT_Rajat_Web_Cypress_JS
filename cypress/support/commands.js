@@ -8,7 +8,8 @@
 #  * Telegram: https://t.me/rajatt95
 #  * Instagram: https://www.instagram.com/rajattvermaa95/
 #  * YouTube: https://www.youtube.com/@rajatt95
-#  * WhatsApp: https://chat.whatsapp.com/DVRP0ViD0YwELUKF2XMJHy
+#  * WhatsApp Community: https://chat.whatsapp.com/DVRP0ViD0YwELUKF2XMJHy
+#  * WhatsApp Channel: https://whatsapp.com/channel/0029Va9XXMhJ93waOU5Xer3r
 #  */
 
 /***************************************************/

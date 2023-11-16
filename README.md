@@ -1,12 +1,26 @@
-
+<!--
+    #/**
+    # * @author Rajat Verma
+    # * Email: rajatvermaa95@gmail.com
+    # * GitHub Profile: https://github.com/rajatt95
+    # * GitHub Page: https://rajatt95.github.io/
+    # * LinkedIn: https://www.linkedin.com/in/rajatt95/
+    # * Topmate: https://topmate.io/rajatt95
+    # * Telegram: https://t.me/rajatt95
+    # * Instagram: https://www.instagram.com/rajattvermaa95/
+    # * YouTube: https://www.youtube.com/@rajatt95
+    # * WhatsApp Community: https://chat.whatsapp.com/DVRP0ViD0YwELUKF2XMJHy
+    # * WhatsApp Channel: https://whatsapp.com/channel/0029Va9XXMhJ93waOU5Xer3r
+    # */
+    #/***************************************************/
+-->
 ---
 # 💻 Test Automation Framework | WEB 
 
 [![Cypress](https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white)](https://www.cypress.io/) 
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://js.org/index.html) 
-[![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 
-
+[![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 [![Mochawesome Reports](https://img.shields.io/badge/Mochawesome%20Reports-<COLOR>?style=for-the-badge&logo=mochawesome&logoColor=white)](https://www.npmjs.com/package/cypress-mochawesome-reporter)
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions) 
 
