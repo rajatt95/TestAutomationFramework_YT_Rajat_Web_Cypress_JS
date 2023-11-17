@@ -38,5 +38,9 @@ import './commands'
 // Import Mochawesome reporter
 import 'cypress-mochawesome-reporter/register';
 
-// Import Cypress-XPath plugin
+// Import Cypress-XPath plugin to enable XPath as Locator Strategy
 import 'cypress-xpath';
+
+// Import Cypress-grep plugin to enable test case filtering based on grep patterns.
+import registerCypressGrep from '@cypress/grep/src/support'
+registerCypressGrep()

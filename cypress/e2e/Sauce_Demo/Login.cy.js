@@ -37,19 +37,27 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
   const valid_password_1 = login_credentials.valid_password_1
  
 
-  // Set up tasks to be performed before each test
+  /**
+   * Set up tasks to be performed before each test
+   */
   beforeEach(() => {
     // Navigate to the Sauce Demo website before each test
     // cy.visit('https://www.saucedemo.com/')
 
     // Navigate to the Sauce Demo website before each test using a custom Cypress command
-    cy.goToApplication()
+    // cy.goToApplication()
 
   })
 
-  // Test Case: Login with valid credentials
-  it('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', () => {
+  /**
+   * Test Case: Login with valid credentials
+   * @regression [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.
+   */
+  it('@regression [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', () => {
     
+    // Navigate to the Sauce Demo website using a custom Cypress command
+    cy.goToApplication()
+
     // Perform login using the loginPage object
     loginPage.loginToApplication(valid_username_1, valid_password_1)
 
@@ -64,8 +72,24 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
     
   })
 
+  /**
+   * Test Case: Validate Google Page Title
+   * @regression @sanity [Google] Page Title. Validate that User is able to see the required Page title.
+   */
+  it('@regression @sanity [Google] Page Title. Validate that User is able to see the required Page title.', () => {
+      
+    // Navigate to the Google website 
+    cy.visit("https://www.google.com/")
 
-  // Test Case: Login with valid credentials (Before Optimization)
+    // Get and validate the page title
+    cy.title().should('eq', 'Google');
+          
+  });
+
+  /**
+   * Test Case (Before Optimization): Login with valid credentials
+   * @regression [LOGIN] Login with valid credentials (Before Optimization). Validate that User is able to login using valid credentials.
+   */
   it.skip('Before Optimization (POM, Test Data) >> [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', () => {
     
     // Type valid credentials and login

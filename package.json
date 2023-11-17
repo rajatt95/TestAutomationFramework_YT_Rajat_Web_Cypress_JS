@@ -5,19 +5,21 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-
     "cy:tests:ELECTRON:NORMAL": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed",
     "cy:tests:ELECTRON:HEADLESS": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js",
 
     "cy:tests:ELECTRON": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed",
     "cy:tests:CHROME": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed --browser chrome",
     "cy:tests:FIREFOX": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed --browser firefox",
-    "cy:tests:EDGE": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed --browser edge"
-    
+    "cy:tests:EDGE": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed --browser edge",
+
+    "cy:tests:ELECTRON:Tag:SANITY": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed --env grep=@sanity",
+    "cy:tests:ELECTRON:Tag:REGRESSION": "cypress run --spec cypress/e2e/Sauce_Demo/*.cy.js --headed --env grep=@regression"
   },
   "author": "Rajat Verma",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/grep": "^4.0.1",
     "cypress": "^13.5.0",
     "cypress-mochawesome-reporter": "^3.6.1",
     "cypress-xpath": "^2.0.1"
