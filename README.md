@@ -58,13 +58,13 @@ Click on the image above to watch the tutorial.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/rajatt95/TestAutomationFramework_YT_Rajat_Cypress_JS.git
+   git clone https://github.com/rajatt95/TestAutomationFramework_YT_Rajat_Web_Cypress_JS.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd TestAutomationFramework_YT_Rajat_Cypress_JS
+   cd TestAutomationFramework_YT_Rajat_Web_Cypress_JS
    ```
 
 3. Install dependencies:
