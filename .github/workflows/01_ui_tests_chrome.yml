@@ -1,7 +1,7 @@
 # This GitHub Actions workflow is designed to execute Cypress tests using Chrome on various events 
 # such as manual trigger, push to the master branch, or pull requests to the master branch.
 
-name: 01_Tests Execution - Pre-defined browser Chrome
+name: 01_Pre-defined browser Chrome
 
 on:
   # Manual Trigger with pre-defined browser Chrome
@@ -10,15 +10,15 @@ on:
   # Trigger on push to the main branch
   push:
     branches:
-      - main
+      - master
 
   # Trigger on pull request to the main branch
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
-  cypress_chrome:
+  ui_tests_chrome:
     # Define the machine on which tests will execute
     runs-on: ubuntu-latest
 
@@ -38,12 +38,12 @@ jobs:
         run: npm ci
 
       # Step 4: Run Cypress tests on Chrome browser
-      - name: Run Cypress tests
+      - name: Run Cypress UI tests
         run: npm run cy:tests:CHROME
 
       # Step 5: Upload test reports as artifacts
       - name: Upload Reports
         uses: actions/upload-artifact@v2
         with:
-          name: Test Reports
+          name: UI Tests Report
           path: cypress/reports

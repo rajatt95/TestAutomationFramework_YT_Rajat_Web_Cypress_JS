@@ -1,7 +1,7 @@
 {
   "name": "testautomationframework_yt_rajat_cypress_js",
   "version": "1.0.0",
-  "description": "This project is a Test Automation Framework built using Cypress and Javascript.",
+  "description": "This project is a Test Automation Framework built using Cypress and Javascript for automated testing of web applications.",
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",

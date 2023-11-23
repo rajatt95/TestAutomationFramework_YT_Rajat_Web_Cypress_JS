@@ -2,7 +2,7 @@
 # to select the browser dynamically at run-time. 
 # It supports manual triggers and handles inputs for browser selection.
 
-name: 02_Tests Execution - Select Browser at run-time
+name: 02_Select Browser at run-time
 
 on:
   # Manual Trigger with browser selection input
@@ -19,7 +19,7 @@ on:
         default: 'CHROME'
         type: choice
 jobs:
-  cypress_select_one_browser:
+  ui_tests_browser_selected:
     # Machine on which tests will execute
     runs-on: ubuntu-latest
 
@@ -38,12 +38,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Cypress tests
+      - name: Run Cypress UI tests
         run: npm run cy:tests:${{ github.event.inputs.browser }}
         
       # Add this step to upload the reports as artifacts
       - name: Upload Reports
         uses: actions/upload-artifact@v2
         with:
-          name: Test Reports
+          name: UI Tests Report
           path: cypress/reports
