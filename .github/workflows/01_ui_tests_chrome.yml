@@ -10,12 +10,12 @@ on:
   # Trigger on push to the main branch
   push:
     branches:
-      - master
+      - main
 
   # Trigger on pull request to the main branch
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   ui_tests_chrome:

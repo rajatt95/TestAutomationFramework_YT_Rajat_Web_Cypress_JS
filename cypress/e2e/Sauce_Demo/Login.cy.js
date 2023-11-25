@@ -70,6 +70,8 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
     header.elements.logo_application().should('have.text', 'Swag Labs')
     footer.elements.msg_copyright().should('include.text', ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
     
+    cy.screenshot()
+
   })
 
   /**
