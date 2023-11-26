@@ -44,9 +44,9 @@ This repository contains a Test Automation Framework built using Cypress and Jav
 
 ## 🎥 Video Tutorial
 
-<a href="https://www.youtube.com/watch?v=xVlSLhB3VcA"> <img src="https://img.youtube.com/vi/xVlSLhB3VcA/0.jpg" alt="Tutorial | POM | Selenium WebDriver + Java" width="200"> </a>
+<a href="https://www.youtube.com/watch?v=g0nG6aPbpl4&list=PLrBBHmoBFxBUu9G7haETpa0B03H9GnfKX"> <img src="https://img.youtube.com/vi/g0nG6aPbpl4/0.jpg" alt="Test Automation Framework | WEB | Cypress + JS" width="200"> </a>
 
-Click on the image above to watch the tutorial.
+Click on the image above to watch the tutorials.
 
 ## 🛠️ Prerequisites
 
