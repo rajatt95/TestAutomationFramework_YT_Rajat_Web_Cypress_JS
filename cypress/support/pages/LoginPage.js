@@ -33,7 +33,7 @@ class LoginPage{
         textbox_password: () => cy.get('#password'),
 
         // CSS selector for the login button
-        button_LogIn: () => cy.get('#login-button'),
+        button_login: () => cy.get('#login-button'),
 
     }
 
@@ -56,7 +56,7 @@ class LoginPage{
 
         basePage.fillTextBox(this.elements.textbox_username(), username)
         basePage.fillTextBox(this.elements.textbox_password(), password)
-        basePage.clickOnWebElement(this.elements.button_LogIn())
+        basePage.clickOnWebElement(this.elements.button_login())
 
     }
 

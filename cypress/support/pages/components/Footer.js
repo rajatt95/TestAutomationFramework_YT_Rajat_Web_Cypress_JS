@@ -24,7 +24,10 @@ class Footer{
     elements = {
     
         // CSS selector for the Copyright message 
-        msg_copyright: () => cy.get('.footer_copy')
+        msg_copyright: () => cy.get('.footer_copy'),
+
+        // CSS selector for the LinkedIn link
+        link_linkedIn: () => cy.xpath("//a[normalize-space()='LinkedIn']")
 
     }
 

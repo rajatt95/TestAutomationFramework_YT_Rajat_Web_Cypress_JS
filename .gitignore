@@ -20,6 +20,7 @@ package-lock.json
 extras
 cypress/reports
 cypress/videos
+cypress/screenshots
 ###########################
 
 #target/

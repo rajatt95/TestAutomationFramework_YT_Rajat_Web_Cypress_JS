@@ -24,6 +24,8 @@ import loginPage from '../../support/pages/LoginPage'
 import productsPage from '../../support/pages/ProductsPage'
 import header from '../../support/pages/components/Header'
 import footer from '../../support/pages/components/Footer'
+import verificationUtils from '../../support/utils/VerificationUtils'
+import waitUtils from '../../support/utils/WaitUtils'
 
 // Retrieve the application URL from Cypress environment variables
 const application_URL = Cypress.env('application_URL')
@@ -64,11 +66,21 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
     // Assertions for an successful login 
 
     // Verify successful login on the Products Page
-    productsPage.elements.heading_products().should('have.text', 'Products')
+    verificationUtils.elementHasText(productsPage.elements.heading_products(), 'Products')
 
     // Verify common components on the page
-    header.elements.logo_application().should('have.text', 'Swag Labs')
-    footer.elements.msg_copyright().should('include.text', ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+
+    // Verify the logo in the header is present
+    verificationUtils.elementIsVisible(header.elements.logo_application(), "Header: Application Logo")
+
+    // Verify the logo text in the header
+    verificationUtils.elementHasText(header.elements.logo_application(), 'Swag Labs')
+
+    // Verify the copyright message in the footer
+    verificationUtils.elementContainsText(footer.elements.msg_copyright(), ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+
+    // Verify the href attribute and value for the LinkedIn link in the footer
+    verificationUtils.elementHasAttributeAndHasValue(footer.elements.link_linkedIn(), "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
     
     cy.screenshot()
 
@@ -84,7 +96,15 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
     cy.visit("https://www.google.com/")
 
     // Get and validate the page title
-    cy.title().should('eq', 'Google');
+    // cy.title().should('eq', 'Google');
+    verificationUtils.pageHasTitle('Google')
+
+    // To check other methods
+    verificationUtils.pageContainsTitle('Goo')
+    verificationUtils.pageHasUrl('https://www.google.com/')
+    verificationUtils.pageContainsUrl('google.com')
+
+    waitUtils.waitForGivenTime(5)
           
   });
 

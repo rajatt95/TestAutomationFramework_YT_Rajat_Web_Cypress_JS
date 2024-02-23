@@ -129,6 +129,9 @@ The tests follow a modular and maintainable structure:
 |               |-- BasePage.js
 |               |-- LoginPage.js
 |               |-- ProductsPage.js
+|          |-- utils
+|               |-- VerificationUtils.js
+|               |-- WaitUtils.js
 |          |-- commands.js
 |          |-- e2e.js
 |-- .gitignore
@@ -140,7 +143,7 @@ The tests follow a modular and maintainable structure:
 - `cypress/fixtures`: Contains external fixtures (e.g., login credentials data) that can be used to mock data during tests.
 - `cypress/support`: Contains custom commands and global configuration.
 - `cypress/support/pages`: Contains the Page Object Model (POM) classes representing web pages and their elements.
-- `cypress/plugins`: Contains plugins used by Cypress.
+- `cypress/support/utils`: Contains the Utilities that provides methods for asserting different conditions on web elements, waits.
 - `cypress/reports`: Contains the report for tests.
 
 ## ⚙️ Configuration
