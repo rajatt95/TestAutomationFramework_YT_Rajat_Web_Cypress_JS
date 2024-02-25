@@ -19,18 +19,18 @@
 
 /// <reference types="cypress" />
 
-// Importing page objects and components
+// Importing page objects
 import loginPage from '../../support/pages/LoginPage'
 import cartPage from '../../support/pages/CartPage'
-import header from '../../support/pages/components/Header'
+import components from '../../support/pages/components/Components'
 
 // Importing utilities
 import verificationUtils from '../../support/utils/VerificationUtils'
 
 /**
- * Test suite for Sauce Demo Header Component.
+ * Test suite for Sauce Demo Application Components.
  */
-describe('Sauce Demo - [Header]', () => {
+describe('Sauce Demo - [Components]', () => {
 
   /**
    * Before each test, navigate to the application homepage and login.
@@ -48,13 +48,13 @@ describe('Sauce Demo - [Header]', () => {
   it('[Header] Static Messages. Validate that User is able to see messages in Header component. @regression @sanity', () => {
    
     // Verify the side-panel expand icon on the header
-    verificationUtils.elementIsVisible(header.elements.icon_expand(), "Side-Panel: Expand Icon")
+    verificationUtils.elementIsVisible(components.elements.side_panel_icon_expand(), "Side-Panel: Expand Icon")
 
     // Verify the logo on the header
-    verificationUtils.elementHasText(header.elements.logo_application(), 'Swag Labs')
+    verificationUtils.elementHasText(components.elements.header_logo_swag_labs(), 'Swag Labs')
     
     // Verify the cart icon on the header
-    verificationUtils.elementIsVisible(header.elements.icon_cart(), "Header: Cart icon")
+    verificationUtils.elementIsVisible(components.elements.header_icon_cart(), "Header: Cart icon")
       
   });  
 
@@ -66,7 +66,7 @@ describe('Sauce Demo - [Header]', () => {
   it('[Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon. @regression', () => {
    
     // Click on Cart icon
-    header.click_header_icon_cart()
+    components.click_header_icon_cart()
 
     // Verify that User is on Cart Page
     verificationUtils.elementHasText(cartPage.elements.heading_your_cart(), 'Your Cart')
@@ -80,6 +80,36 @@ describe('Sauce Demo - [Header]', () => {
     verificationUtils.pageHasTitle('Swag Labs')    
 
   });  
+
+  /**
+   * Test case: [Footer] Static Messages. Validate that User is able to see messages in Footer component. @regression @sanity
+   * @tags {regression, sanity}
+   */
+  it('[Footer] Static Messages. Validate that User is able to see messages in Footer component. @regression @sanity', () => {
+    
+    // Verify the social links icon
+    verificationUtils.elementIsVisible(components.elements.footer_link_twitter(), "Footer: Twitter link")
+    verificationUtils.elementIsVisible(components.elements.footer_link_facebook(), "Footer: Facebook link")
+    verificationUtils.elementIsVisible(components.elements.footer_link_linkedIn(), "Footer: LinkedIn link")
+
+    // Verify the copyright message 
+    verificationUtils.elementContainsText(components.elements.footer_msg_copyright(), '© 2024 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+
+  });  
+
+  /**
+   * Test case: [Footer] Links navigation. Validate that User is able to navigate to social platforms using icons.
+   * @tags {regression}
+   */
+  it('[Footer] Links navigation. Validate that User is able to navigate to social platforms using icons. @regression', () => {
+
+    // Verify the social links  
+    verificationUtils.elementHasAttributeAndHasValue(components.elements.footer_link_twitter(), "Footer: Twitter link", "href","https://twitter.com/saucelabs")
+    verificationUtils.elementHasAttributeAndHasValue(components.elements.footer_link_facebook(), "Footer: Facebook link", "href","https://www.facebook.com/saucelabs")
+    verificationUtils.elementHasAttributeAndHasValue(components.elements.footer_link_linkedIn(), "Footer: LinkedIn link", "href","https://www.linkedin.com/company/sauce-labs/")
+
+  });  
+
 
     
 })
