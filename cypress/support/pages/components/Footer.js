@@ -27,7 +27,13 @@ class Footer{
         msg_copyright: () => cy.get('.footer_copy'),
 
         // CSS selector for the LinkedIn link
-        link_linkedIn: () => cy.xpath("//a[normalize-space()='LinkedIn']")
+        link_linkedIn: () => cy.xpath("//a[normalize-space()='LinkedIn']"),
+
+        // CSS selector for the Twitter link
+        link_twitter: () => cy.xpath("//a[normalize-space()='Twitter']"),
+
+        // CSS selector for the Facebook link
+        link_facebook: () => cy.xpath("//a[normalize-space()='Facebook']")
 
     }
 

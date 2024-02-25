@@ -63,7 +63,7 @@ describe('Sauce Demo - [Header]', () => {
    * Test case: [Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon.
    * @tags {regression}
    */
-  it.only('[Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon. @regression', () => {
+  it('[Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon. @regression', () => {
    
     // Click on Cart icon
     header.click_header_icon_cart()
@@ -73,7 +73,7 @@ describe('Sauce Demo - [Header]', () => {
   
     // Verify the Page URL
     verificationUtils.pageContainsUrl('cart')
-    // verificationUtils.pageHasUrl('cart.html') // baseUrl value will be fetched from playwright.config.js file
+    // verificationUtils.pageHasUrl('cart.html') // baseUrl value will be fetched from cypress.config.js file
 
     // Verify the Page Title
     verificationUtils.pageContainsTitle('Labs')
