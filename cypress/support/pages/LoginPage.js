@@ -48,19 +48,15 @@ class LoginPage{
     * @param {string} password - The password to be used for login.
     */
     loginToApplication(username, password){
-
+      
         // Logging the login action with provided username and password
         cy.log('Logging into application using '+ username + ' and '+ password)
 
         // Filling the username and password fields and clicking the login button
-        // this.elements.textbox_username().type(username)
-        // this.elements.textbox_password().type(password)
-        // this.elements.button_LogIn().click()
-
         basePage.fillTextBox(this.elements.textbox_username(), username)
         basePage.fillTextBox(this.elements.textbox_password(), password)
         basePage.clickOnWebElement(this.elements.button_login())
-
+        
     }
 
     /**

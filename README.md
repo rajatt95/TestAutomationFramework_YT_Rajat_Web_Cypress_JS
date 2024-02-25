@@ -117,16 +117,16 @@ The tests follow a modular and maintainable structure:
 |-- cypress
 |     |-- e2e
 |          |-- Sauce_Demo
-|               |-- Login.cy.js
+|               |-- components.cy.js
+|               |-- login.cy.js
 |     |-- fixtures
 |          |-- login_credentials.json
 |     |-- reports
 |     |-- support
 |          |-- pages
-|               |-- components
-|                   |-- Header.js
-|                   |-- Footer.js
 |               |-- BasePage.js
+|               |-- CartPage.js
+|               |-- Components.js
 |               |-- LoginPage.js
 |               |-- ProductsPage.js
 |          |-- utils
