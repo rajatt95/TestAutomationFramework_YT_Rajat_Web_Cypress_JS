@@ -35,6 +35,9 @@ class LoginPage{
         // CSS selector for the login button
         button_login: () => cy.get('#login-button'),
 
+        // XPath for the Error message
+        message_error_not_match: () => cy.xpath("//h3[contains(text(),'do not match')]"),
+
     }
 
     // Operations/Actions with Web Elements
@@ -57,6 +60,21 @@ class LoginPage{
         basePage.fillTextBox(this.elements.textbox_username(), username)
         basePage.fillTextBox(this.elements.textbox_password(), password)
         basePage.clickOnWebElement(this.elements.button_login())
+
+    }
+
+    /**
+     * Perform login to the application with valid credentials.
+     */    
+    loginToApplicationWithValidCredentials(){
+
+        // Loading login credentials from JSON file
+        const loginCredentials = require('../../fixtures/login_credentials.json');  
+
+        // Extracting credentials for valid case
+        const {valid_username, valid_password} = loginCredentials.data.credentials_1;
+  
+        this.loginToApplication(valid_username, valid_password)
 
     }
 

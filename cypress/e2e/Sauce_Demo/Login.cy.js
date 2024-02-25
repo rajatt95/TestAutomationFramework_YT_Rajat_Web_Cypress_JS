@@ -24,6 +24,8 @@ import loginPage from '../../support/pages/LoginPage'
 import productsPage from '../../support/pages/ProductsPage'
 import header from '../../support/pages/components/Header'
 import footer from '../../support/pages/components/Footer'
+
+// Importing utilities
 import verificationUtils from '../../support/utils/VerificationUtils'
 import waitUtils from '../../support/utils/WaitUtils'
 
@@ -33,35 +35,33 @@ const application_URL = Cypress.env('application_URL')
 // Test Suite for Sauce Demo Login
 describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
   
-  // Load login credentials from fixtures
-  const login_credentials = require('/cypress/fixtures/login_credentials.json')
-  const valid_username_1 = login_credentials.valid_username_1
-  const valid_password_1 = login_credentials.valid_password_1
- 
+  // Loading login credentials from JSON file
+  const loginCredentials = require('../../fixtures/login_credentials.json')
+  
+  // Extracting credentials for both valid and invalid cases
+  const {
+    credentials_1: { valid_username, valid_password },
+    credentials_2: { invalid_username, invalid_password }
+  } = loginCredentials.data;
+
 
   /**
-   * Set up tasks to be performed before each test
+   * Before each test, navigate to the application homepage.
    */
   beforeEach(() => {
-    // Navigate to the Sauce Demo website before each test
-    // cy.visit('https://www.saucedemo.com/')
-
     // Navigate to the Sauce Demo website before each test using a custom Cypress command
-    // cy.goToApplication()
+    cy.goToApplication()
 
   })
 
   /**
    * Test Case: Login with valid credentials
-   * @regression [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.
+   * [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity
    */
-  it('@regression [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', () => {
+  it('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', () => {
     
-    // Navigate to the Sauce Demo website using a custom Cypress command
-    cy.goToApplication()
-
     // Perform login using the loginPage object
-    loginPage.loginToApplication(valid_username_1, valid_password_1)
+    loginPage.loginToApplication(valid_username, valid_password)
 
     // Assertions for an successful login 
 
@@ -86,27 +86,28 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
 
   })
 
+
   /**
-   * Test Case: Validate Google Page Title
-   * @regression @sanity [Google] Page Title. Validate that User is able to see the required Page title.
+   * Test Case: Login with invalid credentials
+   * [LOGIN] Test case: Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression
    */
-  it('@regression @sanity [Google] Page Title. Validate that User is able to see the required Page title.', () => {
-      
-    // Navigate to the Google website 
-    cy.visit("https://www.google.com/")
+  it('[LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', () => {
+    
+    // Fill invalid credentials and Login 
+    loginPage.loginToApplication(invalid_username, invalid_password)
 
-    // Get and validate the page title
-    // cy.title().should('eq', 'Google');
-    verificationUtils.pageHasTitle('Google')
+    // Verify the error message for Username and Password not match with any User
+    verificationUtils.elementContainsText(loginPage.elements.message_error_not_match(), 'Username and password do not match')
 
-    // To check other methods
-    verificationUtils.pageContainsTitle('Goo')
-    verificationUtils.pageHasUrl('https://www.google.com/')
-    verificationUtils.pageContainsUrl('google.com')
+    // Added to check utilities implementation
+    verificationUtils.pageHasTitle('Swag Labs')
+    verificationUtils.pageContainsTitle('Swag')
+    verificationUtils.pageHasUrl('https://www.saucedemo.com/')
+    verificationUtils.pageContainsUrl('demo')
 
     waitUtils.waitForGivenTime(5)
-          
-  });
+
+  })
 
   /**
    * Test Case (Before Optimization): Login with valid credentials
