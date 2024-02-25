@@ -22,8 +22,7 @@
 // Importing page objects and components
 import loginPage from '../../support/pages/LoginPage'
 import productsPage from '../../support/pages/ProductsPage'
-import header from '../../support/pages/components/Header'
-import footer from '../../support/pages/components/Footer'
+import components from '../../support/pages/Components'
 
 // Importing utilities
 import verificationUtils from '../../support/utils/VerificationUtils'
@@ -71,16 +70,16 @@ describe('Sauce Demo ('+application_URL+') - [LOGIN]', () => {
     // Verify common components on the page
 
     // Verify the logo in the header is present
-    verificationUtils.elementIsVisible(header.elements.logo_application(), "Header: Application Logo")
+    verificationUtils.elementIsVisible(components.elements.header_logo_swag_labs(), "Header: Application Logo")
 
     // Verify the logo text in the header
-    verificationUtils.elementHasText(header.elements.logo_application(), 'Swag Labs')
+    verificationUtils.elementHasText(components.elements.header_logo_swag_labs(), 'Swag Labs')
 
     // Verify the copyright message in the footer
-    verificationUtils.elementContainsText(footer.elements.msg_copyright(), ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+    verificationUtils.elementContainsText(components.elements.footer_msg_copyright(), ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
 
     // Verify the href attribute and value for the LinkedIn link in the footer
-    verificationUtils.elementHasAttributeAndHasValue(footer.elements.link_linkedIn(), "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
+    verificationUtils.elementHasAttributeAndHasValue(components.elements.footer_link_linkedIn(), "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
     
     cy.screenshot()
 

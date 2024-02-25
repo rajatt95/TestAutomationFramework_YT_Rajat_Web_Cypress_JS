@@ -43,6 +43,26 @@ class VerificationUtils{
         targetElement.should('not.exist')
     }
 
+
+    /**
+     *  Asserts the count of visible elements.
+     * @param {ElementHandle} targetElement - The target element to check.
+     * @param {string} targetElementName - The name or identifier of the target element.
+     * @param {string} expectedCount - The expected count of elements.
+     * 
+     */
+     async elementsCount(targetElement, targetElementName, expectedCount){
+        if(expectedCount == 1){
+            console.log(`Asserts that ${expectedCount} '${targetElementName}' is visible.`);
+        }else{
+            console.log(`Asserts that ${expectedCount} '${targetElementName}' are visible.`);
+        }
+
+        targetElement.should('have.length',expectedCount)
+    }
+
+
+
     /**
      * Asserts that an element has a specific attribute with the expected value.
      * @param {Object} targetElement - The target element to check.

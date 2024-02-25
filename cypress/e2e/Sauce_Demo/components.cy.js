@@ -22,10 +22,11 @@
 // Importing page objects
 import loginPage from '../../support/pages/LoginPage'
 import cartPage from '../../support/pages/CartPage'
-import components from '../../support/pages/components/Components'
+import components from '../../support/pages/Components'
 
 // Importing utilities
 import verificationUtils from '../../support/utils/VerificationUtils'
+import waitUtils from '../../support/utils/WaitUtils'
 
 /**
  * Test suite for Sauce Demo Application Components.
@@ -110,6 +111,64 @@ describe('Sauce Demo - [Components]', () => {
 
   });  
 
+  /**
+   * Test case: [Side-Panel] Static Messages. Validate that User is able to see messages in Side-Panel component.
+   * @tags {regression, sanity}
+   */
+  it('[Side-Panel] Static Messages. Validate that User is able to see messages in Side-Panel component. @regression @sanity', () => {
 
+    // Open Side-Panel
+    components.click_side_panel_icon_expand()
+
+    // Verify Links in Side-Panel
+    verificationUtils.elementHasText(components.elements.side_panel_link_allItems(), "All Items")
+    verificationUtils.elementHasText(components.elements.side_panel_link_about(), "About")
+    verificationUtils.elementHasText(components.elements.side_panel_link_logout(), "Logout")
+    verificationUtils.elementHasText(components.elements.side_panel_link_resetAppState(), "Reset App State")
+      
+    verificationUtils.elementsCount(components.elements.side_panel_links(), "Side-Panel links", 4)
+    
+    verificationUtils.elementIsVisible(components.elements.side_panel_icon_cross(), "Side-Panel: Cross link")
+    
+  });  
+
+
+  /**
+   * Test case: [Side-Panel] Panel Expand/Collapse. Validate that User is able to expand/collapse panel using icons.
+   * @tags {regression}
+   */
+  it('[Side-Panel] Panel Expand/Collapse. Validate that User is able to expand/collapse panel using icons. @regression', () => {
+
+    // Open Side-Panel
+    components.click_side_panel_icon_expand()
+    // verificationUtils.elementIsNotVisible(components.elements.side_panel_icon_expand(), "Side-Panel: Expand icon")
+    verificationUtils.elementIsVisible(components.elements.side_panel_icon_cross(), "Side-Panel: Cross icon")
+
+    // Close Side-Panel
+    components.click_side_panel_icon_cross()
+    verificationUtils.elementIsVisible(components.elements.side_panel_icon_expand(), "Side-Panel: Expand icon")
+    // verificationUtils.elementIsNotVisible(components.elements.side_panel_icon_cross(), "Side-Panel: Cross icon")
+              
+  });  
+
+
+  /**
+   * Test case: [Side-Panel] Link: About. Validate that User is able to navigate to official website using About link.
+   * @tags {regression}
+   */
+  it('[Side-Panel] Link: About. Validate that User is able to navigate to official website using About link. @regression', () => {
+
+    // Open Side-Panel
+    components.click_side_panel_icon_expand()
+    
+    // Verify About Link in Side-Panel
+    // components.click_side_panel_link_about()
+
+    // // Verify Page URL and Title
+    // verificationUtils.pageHasTitle('Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing')
+    // verificationUtils.pageHasUrl('https://saucelabs.com/') 
+    verificationUtils.elementHasAttributeAndHasValue(components.elements.side_panel_link_about(), "Side-Panel: About link", 'href', 'https://saucelabs.com/')
+
+  });
     
 })

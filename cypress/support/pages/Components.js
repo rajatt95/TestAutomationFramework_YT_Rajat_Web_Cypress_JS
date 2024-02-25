@@ -14,7 +14,7 @@
 
 /***************************************************/
 
-import basePage from '../BasePage'
+import basePage from './BasePage'
 
 /**
  * Components class representing the components of the application.
@@ -37,7 +37,14 @@ class Components{
 
         // Side-Panel
         side_panel_icon_expand: () => cy.get('#react-burger-menu-btn'),
-        
+        side_panel_icon_cross: () => cy.get('#react-burger-cross-btn'),
+
+        side_panel_links: () => cy.xpath("//*[contains(@id,'sidebar_link')]"),
+        side_panel_link_allItems: () => cy.get('#inventory_sidebar_link'),
+        side_panel_link_about: () => cy.get('#about_sidebar_link'),
+        side_panel_link_logout: () => cy.get('#logout_sidebar_link'),
+        side_panel_link_resetAppState: () => cy.get('#reset_sidebar_link'),
+
     }
 
     // Operations/Actions with Web Elements
@@ -60,6 +67,20 @@ class Components{
      */
     click_side_panel_icon_expand(){
         basePage.clickOnWebElement(this.elements.side_panel_icon_expand())
+    }
+
+    /**
+     * Perform a click action on the cross icon in the side panel.
+     */
+    click_side_panel_icon_cross(){
+        basePage.clickOnWebElement(this.elements.side_panel_icon_cross())
+    }
+
+    /**
+     * Perform a click action on the about link in the side panel.
+     */
+    click_side_panel_link_about(){
+        basePage.clickOnWebElement(this.elements.side_panel_link_about())
     }
 
 }
