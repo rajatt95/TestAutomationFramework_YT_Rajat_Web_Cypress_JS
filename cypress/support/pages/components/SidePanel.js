@@ -14,35 +14,26 @@
 
 /***************************************************/
 
-import basePage from '../BasePage'
-
 /**
- * Header class representing the Header component of the application.
+ * SidePanel class representing the Side-Panel component of the application.
  */
-class Header{
+class SidePanel{
 
     // Defining Web Elements
 
     elements = {
     
-        // CSS selector for the Application logo
-        logo_application: () => cy.get('.app_logo'),
+        // CSS selector for the Copyright message 
+        msg_copyright: () => cy.get('.footer_copy'),
 
-        // CSS selector for the Side Panel Expand icon
-        icon_expand: () => cy.get('#react-burger-menu-btn'),
-
-        // CSS selector for the Cart icon
-        icon_cart: () => cy.get('#shopping_cart_container')
+        // CSS selector for the LinkedIn link
+        link_linkedIn: () => cy.xpath("//a[normalize-space()='LinkedIn']")
 
     }
 
     // Operations/Actions with Web Elements
-    click_header_icon_cart(){
-        basePage.clickOnWebElement(this.elements.icon_cart())
-    }
-
 
 }
 
-// Exporting an instance of the Header class to be used by other files
-export default new Header
+// Exporting an instance of the SidePanel class to be used by other files
+export default new SidePanel

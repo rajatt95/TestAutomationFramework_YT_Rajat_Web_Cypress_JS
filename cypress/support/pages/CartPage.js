@@ -14,35 +14,23 @@
 
 /***************************************************/
 
-import basePage from '../BasePage'
-
 /**
- * Header class representing the Header component of the application.
+ * CartPage class representing the products page of the application.
  */
-class Header{
+class CartPage{
 
     // Defining Web Elements
 
     elements = {
     
-        // CSS selector for the Application logo
-        logo_application: () => cy.get('.app_logo'),
-
-        // CSS selector for the Side Panel Expand icon
-        icon_expand: () => cy.get('#react-burger-menu-btn'),
-
-        // CSS selector for the Cart icon
-        icon_cart: () => cy.get('#shopping_cart_container')
+        // CSS selector for the Your Cart heading
+        heading_your_cart: () => cy.get('.title')
 
     }
 
     // Operations/Actions with Web Elements
-    click_header_icon_cart(){
-        basePage.clickOnWebElement(this.elements.icon_cart())
-    }
-
 
 }
 
-// Exporting an instance of the Header class to be used by other files
-export default new Header
+// Exporting an instance of the CartPage class to be used by other files
+export default new CartPage
