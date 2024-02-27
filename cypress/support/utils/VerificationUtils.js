@@ -43,7 +43,6 @@ class VerificationUtils{
         targetElement.should('not.exist')
     }
 
-
     /**
      *  Asserts the count of visible elements.
      * @param {ElementHandle} targetElement - The target element to check.
@@ -61,8 +60,6 @@ class VerificationUtils{
         targetElement.should('have.length',expectedCount)
     }
 
-
-
     /**
      * Asserts that an element has a specific attribute with the expected value.
      * @param {Object} targetElement - The target element to check.
@@ -73,6 +70,19 @@ class VerificationUtils{
     elementHasAttributeAndHasValue(targetElement, targetElementName, attribute, attributeValue){
         console.log(`Asserts that '${targetElementName}' has a specific attribute '${attribute}' with the expected value '${attributeValue}'.`)
         targetElement.should('have.attr', attribute, attributeValue);
+    }    
+
+    /**
+     * Asserts that an element has a specific CSS property with the expected value.
+     *
+     * @param {Object} targetElement - The target element to check.
+     * @param {string} targetElementName - The name of the target element.
+     * @param {string} property - The CSS property to check.
+     * @param {string} propertyValue - The expected value of the CSS property.
+     */
+    elementHasCSSPropertyAndHasValue(targetElement, targetElementName, property, propertyValue){
+        console.log(`Asserts that '${targetElementName}' has a specific attribute '${property}' with the expected value '${propertyValue}'.`)
+        targetElement.should('have.css', property, propertyValue);
     }    
 
     /**

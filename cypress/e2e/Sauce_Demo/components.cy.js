@@ -26,7 +26,6 @@ import components from '../../support/pages/Components'
 
 // Importing utilities
 import verificationUtils from '../../support/utils/VerificationUtils'
-import waitUtils from '../../support/utils/WaitUtils'
 
 /**
  * Test suite for Sauce Demo Application Components.
@@ -46,7 +45,7 @@ describe('Sauce Demo - [Components]', () => {
    * Test case: [Header] Static Messages. Validate that User is able to see messages in Header component.
    * @tags {regression, sanity}
    */
-  it('[Header] Static Messages. Validate that User is able to see messages in Header component. @regression @sanity', () => {
+  it.only('[Header] Static Messages. Validate that User is able to see messages in Header component. @regression @sanity', () => {
    
     // Verify the side-panel expand icon on the header
     verificationUtils.elementIsVisible(components.elements.side_panel_icon_expand(), "Side-Panel: Expand Icon")
@@ -56,7 +55,13 @@ describe('Sauce Demo - [Components]', () => {
     
     // Verify the cart icon on the header
     verificationUtils.elementIsVisible(components.elements.header_icon_cart(), "Header: Cart icon")
-      
+
+    // Verify the CSS Property of the logo
+    verificationUtils.elementHasCSSPropertyAndHasValue(components.elements.header_logo_swag_labs(), "Header: Swag Labs", "font-size","24px")
+    verificationUtils.elementHasCSSPropertyAndHasValue(components.elements.header_logo_swag_labs(), "Header: Swag Labs", "font-family",'"DM Mono", "sans-serif"')
+    verificationUtils.elementHasCSSPropertyAndHasValue(components.elements.header_logo_swag_labs(), "Header: Swag Labs", "color","rgb(19, 35, 34)")
+    
+
   });  
 
 
